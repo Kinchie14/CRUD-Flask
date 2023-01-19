@@ -5,16 +5,25 @@ from wtforms.validators import DataRequired
 
 views = Blueprint("views", __name__)
 
+class NamerForm(FlaskForm):
+    name = StringField("What's your name?", validators = [DataRequired()])
+    submit = SubmitField("Submit")
 
 @views.route('/')
 def home():
     return render_template("home.html")
 
-@views.route('/name')
+@views.route('/name', methods = ['GET', 'POST'])
 def name():
-    return render_template("name.html")
+    name = None
+    form = NamerForm()
+    if form.validate_on_submit():
+        name = form.name.data
+        form.name.data = ''
 
-class NamerForm(FlaskForm):
-    name = StringField("What's your name?", validators = [DataRequired()])
-    submit = SubmitField("Submit")
+    return render_template("name.html",
+        name = name,
+        form = form)
+
+
 

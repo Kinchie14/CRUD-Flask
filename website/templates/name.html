@@ -1,9 +1,22 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} 
+{% extends "base.html" %} {% block title %}Name{% endblock %} 
 
 
 
 {% block content%}
 
-<h1>This is your name</h1>
+{% if name %}
+    <h1>Tanginamo {{ name }}</h1>
+{% else %}
+    <h1>Anong name mo tanginaka?</h1>
+    <br>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.name.label(class="form-label") }}
+        {{ form.name(class="form-control") }}
+        <br>
+        {{ form.submit(class="btn btn-dark") }}
+{% endif %}    
+
+
 
 {% endblock %}
