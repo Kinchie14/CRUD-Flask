@@ -1,0 +1,15 @@
+h1 {
+    color: darkblue;
+    font-size: 60px;
+    font-family: Railway;
+}
+
+body {
+    background: #f4f4f4;
+}
+
+#demo {
+    color: darkblue;
+    font-size: 30px;
+}
+

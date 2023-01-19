@@ -1,4 +1,24 @@
 {% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
     content %}
 
+    <br>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.name.label(class="form-label") }}
+        {{ form.name(class="form-control") }}
+        <br>
+        {{ form.age.label(class="form-label") }}
+        {{ form.age(class="form-control") }}
+        <br>
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control") }}
+        <br>
+        {{ form.password1.label(class="form-label") }}
+        {{ form.password1(class="form-control") }}
+        <br>
+        {{ form.password2.label(class="form-label") }}
+        {{ form.password2(class="form-control") }}
+        <br>
+        {{ form.submit(class="btn btn-dark") }}
+
     {% endblock %}

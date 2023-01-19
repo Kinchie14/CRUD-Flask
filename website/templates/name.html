@@ -6,6 +6,15 @@
 
 {% if name %}
     <h1>Tanginamo {{ name }}</h1>
+    <br>
+    <img src="{{ url_for('static', filename='images/asdf.jpeg') }}" alt="image of my nft" width="300">
+    <br>
+    <br>
+    <p id="demo">This is pakyu...</p>
+
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 {% else %}
     <h1>Anong name mo tanginaka?</h1>
     <br>
