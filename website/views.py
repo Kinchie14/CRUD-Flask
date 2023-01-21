@@ -18,7 +18,7 @@ def home():
 def name():
     name = None
     form = NamerForm()
-    if form.validate_on_submit():
+    if form.validate_on_submit(): 
         name = form.name.data
         form.name.data = ''
         flash('The form has been submitted successfully', category ='success')

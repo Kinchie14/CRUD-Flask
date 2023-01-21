@@ -21,4 +21,17 @@
         <br>
         {{ form.submit(class="btn btn-dark") }}
 
-    {% endblock %}
+
+
+    <br><br><br>
+    {% for our_user in our_user %}
+    {{ our_user.id}}.
+    {{ our_user.name}}-
+    {{ our_user.age}}:
+    {{ our_user.email}}
+    <br><br><br>
+    {% endfor %}
+
+    
+
+{% endblock %}
