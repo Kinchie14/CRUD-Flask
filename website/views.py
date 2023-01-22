@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, url_for, redirect, flash
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+from flask_login import login_required, current_user
 
 views = Blueprint("views", __name__)
 
@@ -10,9 +11,10 @@ class NamerForm(FlaskForm):
     submit = SubmitField("Submit")
 
 
-@views.route('/')
+@views.route('/', methods=['GET', 'POST'])
+@login_required
 def home():
-    return render_template("home.html")
+    return render_template("home.html", user=current_user)
 
 @views.route('/name', methods = ['GET', 'POST'])
 def name():
@@ -25,7 +27,8 @@ def name():
 
     return render_template("name.html",
         name = name,
-        form = form)
+        form = form,
+        user=current_user)
 
 
 
